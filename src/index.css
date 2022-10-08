@@ -1,13 +1,318 @@
+/* RESETS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  background-color: #f5f5f5;
+  color: #4d4d4d;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (min-width: 620px) {
+  body {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
 }
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  appearance: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+input[type="text"] {
+  border-radius: 0;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* end of RESETS */
+
+/* FORM ELEMENTS */
+
+input:focus {
+  outline: grey dashed 1px;;
+}
+
+.form {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+.form-group input {
+  padding: 0.5rem;
+  width: 100%
+
+}
+
+.label-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.label-lg {
+  padding: 0.8rem;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+}
+
+.input-lg {
+  padding: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+[class*=-lg] {
+  font-size: 1.9rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 620px) {
+  [class*=-lg] {
+    font-size: 2.4rem;
+  }
+}
+
+.btn {
+  padding: 0.8rem 1rem;
+  border: 0.2rem solid #4d4d4d;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: grey dashed 1px;
+}
+
+.btn-primary {
+  background-color: black;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #ca3c3c;
+  color: white;
+  border-color: #bd2130;
+}
+
+.btn.toggle-btn {
+  border-width: 1px;
+  border-color: #d3d3d3;
+}
+
+.toggle-btn[aria-pressed=true] {
+  text-decoration: underline;
+  color: black;
+  border-color: black;
+}
+
+.btn-group {
+  display: flex;
+}
+
+.btn-group .btn {
+  flex: 1 1 49%;
+  margin-left: 0.8rem;
+}
+
+.btn-group .btn:first-child {
+  margin-left: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.checkbox {
+  position: relative;
+  margin-bottom: 2.4rem;
+}
+
+.checkbox label {
+  margin-left: 5rem;
+  cursor: pointer;
+}
+
+.checkbox input {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  opacity: 0;
+  top: -0.5rem;
+  left: 0.3rem;
+}
+
+.checkbox label::before {
+  content: " ";
+  border: 2px solid #000;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: inline-block;
+  position: absolute;
+  top: -0.7rem;
+  left: 0;
+  cursor: pointer;
+}
+
+.checkbox label::after {
+  content: "✓";
+  display: inline-block;
+  position: absolute;
+  top: -2.8rem;
+  left: 0.8rem;
+  font-size: 4.5rem;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.checkbox input:checked + label::after {
+  opacity: 1;
+}
+
+.checkbox input:focus + label::before {
+  outline: grey dashed 1px;
+}
+
+@media screen and (min-width: 620px) {
+  .checkbox label::before {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .checkbox input:checked + label::after {
+    top: -2.9rem;
+    left: 0.8rem;
+    font-size: 5rem;
+  }
+}
+
+/* end of FORM ELEMENTS */
+
+/* APP  */
+
+.todo-app {
+  background-color: white;
+  margin-top: 2rem;
+  padding: 4rem;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2.5rem 5rem 0 rgb(0 0 0 / 10%);
+}
+
+.filters {
+  margin-top: 1.2rem;
+}
+
+.filters,
+.list-heading,
+.todo-list {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list-heading {
+  margin-top: 2.8rem;
+}
+
+.todo-list {
+  margin-top: 2.8rem;
+  margin-bottom: 0;
+}
+
+.todo-item {
+  margin-bottom: 2.8rem;
+}
+
+.todo-item:last-child {
+  margin-bottom: 0;
+}
+/*end of APP  */
